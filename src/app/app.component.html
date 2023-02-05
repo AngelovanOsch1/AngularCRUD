@@ -1,0 +1,20 @@
+<header class="flex justify-between h-auto bg-slate-700 p-5">
+    <a routerLink=""><img class="h-40 w-40" src="https://cdn.shopify.com/s/files/1/0099/9562/files/Header-Icon-Logo.png?14597416339728210630"></a>
+    <nav>
+        <ul class="flex items-center gap-12 h-full">
+            <li><a class="text-3xl text-white">Home</a></li>
+            <li><a class="text-3xl text-white">Contact</a></li>
+            <li><a class="text-3xl text-white">About</a></li>
+        </ul>
+    </nav>
+    <div class="flex items-center gap-5">
+       <ng-container *ngIf="!isAuth()">
+            <a routerLink="/login" class="text-white text-3xl bg-slate-900 rounded-xl w-32 h-14 p-2 text-center">Login</a>
+            <a routerLink="/signup" class="text-white text-3xl bg-slate-900 rounded-xl w-32 h-14 p-2 text-center">Sign up</a>
+       </ng-container> 
+       <ng-container *ngIf="isAuth()">
+        <a routerLink="" class="text-white text-3xl bg-slate-900 rounded-xl w-32 h-14 p-2 text-center" (click)="logout()">Logout</a>
+       </ng-container>
+    </div>
+</header>
+<router-outlet></router-outlet>
